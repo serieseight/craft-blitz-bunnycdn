@@ -3,7 +3,7 @@
  * @copyright Copyright (c) SeriesEight
  */
 
-namespace modules\integrations;
+namespace serieseight\blitzbunnycdn;
 
 use Craft;
 use craft\behaviors\EnvAttributeParserBehavior;
