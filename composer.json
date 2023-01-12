@@ -1,0 +1,36 @@
+{
+	"name": "serieseight/craft-blitz-bunnycdn",
+	"description": "Bunny CDN cache purger for the Blitz plugin for Craft CMS.",
+	"version": "1.0.0",
+	"type": "blitz-purger",
+	"license": "proprietary",
+	"keywords": [
+		"craft",
+		"cms",
+		"craftcms",
+		"plugin",
+		"cache",
+		"blitz",
+		"purger"
+	],
+	"require": {
+		"php": "^8.0.2",
+		"craftcms/cms": "^4.0",
+		"putyourlightson/craft-blitz": "^4.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"serieseight\\blitzbunnycdn\\": "src/"
+		}
+	},
+	"support": {
+		"docs": "https://github.com/serieseight/craft-blitz-bunnycdn",
+		"source": "https://github.com/serieseight/craft-blitz-bunnycdn",
+		"issues": "https://github.com/serieseight/craft-blitz-bunnycdn/issues"
+	},
+	"extra": {
+		"name": "Craft Blitz Bunny CDN",
+		"developer": "Series Eight",
+		"developerUrl": "https://serieseight.com/"
+	}
+}

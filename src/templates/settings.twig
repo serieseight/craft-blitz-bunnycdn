@@ -1,0 +1,23 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.autosuggestField({
+    label: "Access Key"|t('serieseight'),
+    instructions: "The Access key for your Bunny account. This can be found under “Account Settings” → “API” in your Bunny account."|t('serieseight'),
+    suggestEnvVars: true,
+    suggestions: craft.cp.getEnvSuggestions(),
+    name: 'accessKey',
+    value: purger.accessKey,
+    errors: purger.getErrors('accessKey'),
+    required: true,
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Pull Zone ID"|t('serieseight'),
+    instructions: "The pull zone ID of your Bunny CDN account. This can be found by going to “Pull Zones” in your Bunny account and copying the number after “/edit/” in the URL. For multiple, separate with commas"|t('serieseight'),
+    suggestEnvVars: true,
+    suggestions: craft.cp.getEnvSuggestions(),
+    name: 'zoneIds',
+    value: purger.zoneIds,
+    errors: purger.getErrors('zoneIds'),
+    required: true,
+}) }}
