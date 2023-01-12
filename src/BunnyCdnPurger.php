@@ -208,16 +208,18 @@ class BunnyCdnPurger extends BaseCachePurger
 	 * takes string seperated list of Zone IDs and formats as an array, parses the env for each item and removes empties
 	 */
 	private function _getZoneIds() {
-		return array_filter(
-			array_map(
-				function($zoneId) {
-					return App::parseEnv($zoneId);
-				},
-				explode(',', $this->zoneIds)
-			),
-			function($zoneId) {
-				return !!$zoneId;
-			});
+		$zones = [];
+		$items = explode(',', $this->zoneIds);
+		foreach ($items as $item) {
+			$item = App::parseEnv($item);
+			$innerItems = explode(',', $item);
+			foreach ($innerItems as $innerItem) {
+				if ($innerItem) {
+					$zones[] = $innerItem;
+				}
+			}
+		}
+		return array_unique($zones);
 	}
 
 	/**
@@ -241,11 +243,11 @@ class BunnyCdnPurger extends BaseCachePurger
 		switch ($action) {
 			case 'purge':
 				$urls = implode(',', $params['urls']);
-				$uri = 'purge?url=' . $urls;
+				$uri = '/purge?url=' . $urls;
 				break;
 			case 'purge-zone':
 				$method = 'POST';
-				$uri = 'pullzone/' . $params['zoneId'] . '/purgeCache';
+				$uri = '/pullzone/' . $params['zoneId'] . '/purgeCache';
 				break;
 			case 'test':
 				$uri = '/pullzone/' . $params['zoneId'];
