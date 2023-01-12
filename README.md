@@ -7,7 +7,6 @@ The Bunny CDN Purger allows the [Blitz](https://putyourlightson.com/plugins/blit
 Install the purger using composer. Currently this requires adding the Git repo to your `composer.json`:
 
 ```json
-// composer.json
 {
 	"require": {
 		"serieseight/craft-blitz-bunnycdn": "dev-main"
