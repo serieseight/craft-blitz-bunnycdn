@@ -135,9 +135,9 @@ class BunnyCdnPurger extends BaseCachePurger
 		}
 
 		$urls = SiteUriHelper::getUrlsFromSiteUris($siteUris);
-		if (count($urls)) {
+		foreach ($urls as $url) {
 			$this->_sendRequest('purge', [
-				'urls' => SiteUriHelper::getUrlsFromSiteUris($siteUris),
+				'url' => $url,
 			]);
 		}
 
@@ -242,8 +242,7 @@ class BunnyCdnPurger extends BaseCachePurger
 		$uri = '';
 		switch ($action) {
 			case 'purge':
-				$urls = implode(',', $params['urls']);
-				$uri = '/purge?url=' . $urls;
+				$uri = '/purge?url=' . $params['url'];
 				break;
 			case 'purge-zone':
 				$method = 'POST';
