@@ -15,8 +15,8 @@
 	],
 	"require": {
 		"php": ">=7.0",
-		"craftcms/cms": "^3.0",
-		"putyourlightson/craft-blitz": "^3.0"
+		"craftcms/cms": "^4.0",
+		"putyourlightson/craft-blitz": "^4.0"
 	},
 	"autoload": {
 		"psr-4": {

@@ -104,7 +104,7 @@ class BunnyCdnPurger extends BaseCachePurger
 	/**
 	 * @inheritdoc
 	 */
-	public function purgeUris(array $siteUris, callable $setProgressHandler = null): void
+	public function purgeUris(array $siteUris, callable $setProgressHandler = null, bool $queue = false): void
 	{
 		$event = new RefreshCacheEvent(['siteUris' => $siteUris]);
 		$this->trigger(self::EVENT_BEFORE_PURGE_CACHE, $event);
